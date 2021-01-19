@@ -1,7 +1,7 @@
 class Formatter {
   //add static methods here
   static capitalize(string) {
-    return string.capitalize()
+    return string[0].toUpperCase() + string.slice(1)
   }
 
   static sanitize(string) {
@@ -9,11 +9,11 @@ class Formatter {
   }
 
   static titleize(string) {
-    let strArray = string.capitalize.split(" ")
+    let strArray = this.capitalize(string).split(" ")
     let badWords = ["the", "a", "an", "but", "of", "and", "for", "at", "by", "from" ]
     let titleArr = strArray.map(word => {
       if (!badWords.includes(word)) {
-        return word.capitalize()
+        return this.capitalize(word)
       } else {
         return word
       }
